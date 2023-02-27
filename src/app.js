@@ -19,7 +19,7 @@ app.set('view engine', 'hbs');
 app.set('views', templatesPath);
 hbs.registerPartials(partialsPath);
 app.use(cors({
-    origin: 'https://siddhiweather-c49u.onrender.com'
+    origin: '*'
 }));
 app.use(express.static(publicDirectoryPath))
 
