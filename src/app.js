@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const cors = require('cors');
+
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 //express is a function which allows us to create a new express application
@@ -16,7 +18,9 @@ const port = process.env.PORT || 3000
 app.set('view engine', 'hbs');
 app.set('views', templatesPath);
 hbs.registerPartials(partialsPath);
-
+app.use(cors({
+    origin: 'https://siddhiweather-c49u.onrender.com'
+}));
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
